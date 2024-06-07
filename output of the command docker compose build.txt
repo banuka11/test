@@ -1,0 +1,105 @@
+C:\Users\Prakash.B_axi\Flask\python-docker-dev>docker compose up --build
+[+] Running 15/15
+ ✔ db Pulled                                                                                                                                                      67.8s
+   ✔ 09f376ebb190 Pull complete                                                                                                                                   34.7s
+   ✔ 119215dfb3e3 Pull complete                                                                                                                                   34.7s
+   ✔ e02bbc8c8252 Pull complete                                                                                                                                   35.3s
+   ✔ 061f31803c55 Pull complete                                                                                                                                   35.4s
+   ✔ accd4903f49a Pull complete                                                                                                                                   37.7s
+   ✔ 2016ff8e6e3a Pull complete                                                                                                                                   38.1s
+   ✔ 088e651df7e9 Pull complete                                                                                                                                   38.2s
+   ✔ ed155773e5e0 Pull complete                                                                                                                                   38.3s
+   ✔ ffebb35d2904 Pull complete                                                                                                                                   63.0s
+   ✔ 293f0bec643a Pull complete                                                                                                                                   63.0s
+   ✔ 1655a257a5b5 Pull complete                                                                                                                                   63.1s
+   ✔ 4ddba458499d Pull complete                                                                                                                                   63.2s
+   ✔ 90e48ae03559 Pull complete                                                                                                                                   63.3s
+   ✔ 822c1a513e6a Pull complete                                                                                                                                   63.4s
+[+] Building 7.5s (14/14) FINISHED                                                                                                                       docker:default
+ => [server internal] load build definition from Dockerfile                                                                                                        0.1s
+ => => transferring dockerfile: 1.69kB                                                                                                                             0.0s
+ => [server] resolve image config for docker-image://docker.io/docker/dockerfile:1                                                                                 2.3s
+ => [server auth] docker/dockerfile:pull token for registry-1.docker.io                                                                                            0.0s
+ => CACHED [server] docker-image://docker.io/docker/dockerfile:1@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e                           0.0s
+ => [server internal] load metadata for docker.io/library/python:3.11.4-slim                                                                                       1.7s
+ => [server auth] library/python:pull token for registry-1.docker.io                                                                                               0.0s
+ => [server internal] load .dockerignore                                                                                                                           0.0s
+ => => transferring context: 671B                                                                                                                                  0.0s
+ => [server base 1/5] FROM docker.io/library/python:3.11.4-slim@sha256:17d62d681d9ecef20aae6c6605e9cf83b0ba3dc247013e2f43e1b5a045ad4901                            0.0s
+ => [server internal] load build context                                                                                                                           0.1s
+ => => transferring context: 1.01kB                                                                                                                                0.0s
+ => CACHED [server base 2/5] WORKDIR /app                                                                                                                          0.0s
+ => CACHED [server base 3/5] RUN adduser     --disabled-password     --gecos ""     --home "/nonexistent"     --shell "/sbin/nologin"     --no-create-home     --  0.0s
+ => CACHED [server base 4/5] RUN --mount=type=cache,target=/root/.cache/pip     --mount=type=bind,source=requirements.txt,target=requirements.txt     python -m p  0.0s
+ => [server base 5/5] COPY . .                                                                                                                                     0.2s
+ => [server] exporting to image                                                                                                                                    0.3s
+ => => exporting layers                                                                                                                                            0.1s
+ => => writing image sha256:814edd2626b90b9dd96da56aa1bdf529e70e07d0fcda89e4ec64e9af0d99acc3                                                                       0.0s
+ => => naming to docker.io/library/python-docker-dev-server                                                                                                        0.0s
+[+] Running 3/3
+ ✔ Volume "python-docker-dev_db-data"    Created                                                                                                                   0.1s
+ ✔ Container python-docker-dev-db-1      Created                                                                                                                   0.6s
+ ✔ Container python-docker-dev-server-1  Recreated                                                                                                                 0.6s
+Attaching to db-1, server-1
+db-1      | The files belonging to this database system will be owned by user "postgres".
+db-1      | This user must also own the server process.
+db-1      |
+db-1      | The database cluster will be initialized with locale "en_US.utf8".
+db-1      | The default database encoding has accordingly been set to "UTF8".
+db-1      | The default text search configuration will be set to "english".
+db-1      |
+db-1      | Data page checksums are disabled.
+db-1      |
+db-1      | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1      | creating subdirectories ... ok
+db-1      | selecting dynamic shared memory implementation ... posix
+db-1      | selecting default max_connections ... 100
+db-1      | selecting default shared_buffers ... 128MB
+db-1      | selecting default time zone ... Etc/UTC
+db-1      | creating configuration files ... ok
+db-1      | running bootstrap script ... ok
+db-1      | performing post-bootstrap initialization ... ok
+db-1      | initdb: warning: enabling "trust" authentication for local connections
+db-1      | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1      | syncing data to disk ... ok
+db-1      |
+db-1      |
+db-1      | Success. You can now start the database server using:
+db-1      |
+db-1      |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1      |
+db-1      | waiting for server to start....2024-06-07 06:38:11.900 UTC [36] LOG:  starting PostgreSQL 16.3 (Debian 16.3-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1      | 2024-06-07 06:38:11.910 UTC [36] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1      | 2024-06-07 06:38:11.960 UTC [39] LOG:  database system was shut down at 2024-06-07 06:38:10 UTC
+db-1      | 2024-06-07 06:38:12.015 UTC [36] LOG:  database system is ready to accept connections
+db-1      |  done
+db-1      | server started
+db-1      | CREATE DATABASE
+db-1      |
+db-1      |
+db-1      | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1      |
+db-1      | 2024-06-07 06:38:13.104 UTC [36] LOG:  received fast shutdown request
+db-1      | waiting for server to shut down....2024-06-07 06:38:13.113 UTC [36] LOG:  aborting any active transactions
+db-1      | 2024-06-07 06:38:13.140 UTC [36] LOG:  background worker "logical replication launcher" (PID 42) exited with exit code 1
+db-1      | 2024-06-07 06:38:13.156 UTC [37] LOG:  shutting down
+db-1      | 2024-06-07 06:38:13.173 UTC [37] LOG:  checkpoint starting: shutdown immediate
+db-1      | 2024-06-07 06:38:13.462 UTC [37] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.146 s, sync=0.113 s, total=0.306 s; sync files=301, longest=0.013 s, average=0.001 s; distance=4255 kB, estimate=4255 kB; lsn=0/1912040, redo lsn=0/1912040
+db-1      | 2024-06-07 06:38:13.487 UTC [36] LOG:  database system is shut down
+db-1      |  done
+db-1      | server stopped
+db-1      |
+db-1      | PostgreSQL init process complete; ready for start up.
+db-1      |
+db-1      | 2024-06-07 06:38:13.720 UTC [1] LOG:  starting PostgreSQL 16.3 (Debian 16.3-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1      | 2024-06-07 06:38:13.722 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1      | 2024-06-07 06:38:13.722 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1      | 2024-06-07 06:38:13.751 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1      | 2024-06-07 06:38:13.768 UTC [52] LOG:  database system was shut down at 2024-06-07 06:38:13 UTC
+db-1      | 2024-06-07 06:38:13.784 UTC [1] LOG:  database system is ready to accept connections
+server-1  |  * Debug mode: off
+server-1  | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+server-1  |  * Running on all addresses (0.0.0.0)
+server-1  |  * Running on http://127.0.0.1:8001
+server-1  |  * Running on http://172.22.0.3:8001
+server-1  | Press CTRL+C to quit
